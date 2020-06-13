@@ -57,8 +57,6 @@ for video_folder in os.listdir('frames'):
                 pred_as_list.append(pred[1])
                 pred_as_list.append(pred[2])
 
-        print(pred_as_list)
-
         final_predictions.append([media_id, frame_nr] + pred_as_list)
 
 df = pd.DataFrame(final_predictions, columns=df_colnames)
