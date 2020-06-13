@@ -51,9 +51,13 @@ for video_folder in os.listdir('frames'):
         y = model.predict(x)
         prediction = decode_predictions(y, top=nr_classes)
 
-        for pred in prediction:
-            pred_as_list = list()
-            pred_as_list.append(pred[1], pred[2])
+        pred_as_list = list()
+        for sublist in prediction:
+            for pred in sublist:
+                pred_as_list.append(pred[1])
+                pred_as_list.append(pred[2])
+
+        print(pred_as_list)
 
         final_predictions.append([media_id, frame_nr] + pred_as_list)
 
